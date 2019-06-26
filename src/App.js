@@ -1,5 +1,6 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ResponsiveDrawer from "./mainMenu";
 
 function Index() {
   return <h2>Home</h2>;
@@ -13,28 +14,21 @@ function Save() {
   return <h2>Save</h2>;
 }
 
+function Draw404() {
+  return <h2>404</h2>;
+}
+
 function AppRouter() {
   return (
     <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/search/">Search</Link>
-            </li>
-            <li>
-              <Link to="/save/">Save</Link>
-            </li>
-          </ul>
-        </nav>
-
-        <Route path="/" exact component={Index} />
-        <Route path="/search/" component={Search} />
-        <Route path="/save/" component={Save} />
-      </div>
+      <ResponsiveDrawer>
+        <Switch>
+            <Route path="/" exact component={Index} />
+            <Route path="/search/" component={Search} />
+            <Route path="/save/" component={Save} />
+            <Route component={Draw404} />
+        </Switch>
+      </ResponsiveDrawer>       
     </Router>
   );
 }
