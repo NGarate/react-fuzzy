@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import ResponsiveDrawer from "./mainMenu";
+import Menu from "./components/Menu";
+import SearchComponent from "./components/Search";
 
 function Index() {
   return <h2>Home</h2>;
 }
 
 function Search() {
-  return <h2>Search</h2>;
+  return <SearchComponent />
 }
 
 function Save() {
@@ -21,14 +22,14 @@ function Draw404() {
 function AppRouter() {
   return (
     <Router>
-      <ResponsiveDrawer>
+      <Menu>
         <Switch>
             <Route path="/" exact component={Index} />
             <Route path="/search/" component={Search} />
             <Route path="/save/" component={Save} />
             <Route component={Draw404} />
         </Switch>
-      </ResponsiveDrawer>       
+      </Menu>       
     </Router>
   );
 }

@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme=>({
   activeStyle: {
     fontWeight: "bold",
     color: "#000000",
-    backgroundColor: "#E6E6E6"
+    backgroundColor: "#D4D4D4"
   },
   listItem: {
     fontWeight: "inherit",
@@ -55,7 +55,7 @@ const useStyles = makeStyles(theme=>({
   },
 }));
 
-export default function SwipeableTemporaryDrawer(props) {
+export default function Menu(props) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     open: false,
